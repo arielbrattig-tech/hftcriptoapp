@@ -1,0 +1,7 @@
+# Normaliza finais de linha: LF no repositório, para que os arquivos copiados
+# para o container Linux não carreguem CRLF do Windows.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary

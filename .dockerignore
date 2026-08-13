@@ -1,0 +1,15 @@
+.git
+.github
+.gitattributes
+.gitignore
+.dockerignore
+Dockerfile
+README.md
+*.md
+
+# Sistema operacional / editores
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/

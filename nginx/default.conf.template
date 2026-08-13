@@ -1,0 +1,44 @@
+server {
+    # ${PORT} é substituído pelo envsubst no boot do container.
+    listen ${PORT};
+    server_name _;
+
+    charset utf-8;
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # ---------- compressão ----------
+    gzip on;
+    gzip_vary on;
+    gzip_min_length 256;
+    gzip_types text/plain text/css text/javascript application/javascript application/json image/svg+xml;
+
+    # ---------- cabeçalhos de segurança ----------
+    # Atenção: add_header só é herdado por um location que NÃO declare o seu
+    # próprio add_header. Por isso o cache abaixo usa a diretiva `expires`,
+    # que não quebra essa herança.
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+
+    # ---------- health check da plataforma ----------
+    location = /healthz {
+        access_log off;
+        default_type text/plain;
+        return 200 "ok\n";
+    }
+
+    # ---------- página ----------
+    # expires -1 => Cache-Control: no-cache. O HTML é sempre revalidado, então
+    # uma atualização da página aparece no próximo acesso, sem cache preso.
+    location / {
+        expires -1;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # ---------- assets ----------
+    location ~* \.(css|js|png|jpe?g|gif|svg|webp|ico|woff2?)$ {
+        expires 30d;
+        access_log off;
+    }
+}
