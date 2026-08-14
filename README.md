@@ -4,10 +4,11 @@ Landing page estática (HTML/CSS/JS, sem dependências) empacotada em um contain
 nginx pronto para rodar em qualquer nuvem.
 
 ```
-index.html                       a página
+index.html                       página do cupom          →  /
+prova-social/index.html          página de prova social   →  /prova-social/
 Dockerfile                       imagem nginx
 nginx/default.conf.template      config do servidor (porta via ${PORT})
-.github/workflows/               build automático da imagem a cada push
+.github/workflows/               build da imagem e deploy no Pages
 ```
 
 ## Rodar localmente

@@ -39,6 +39,7 @@ jobs:
         run: |
           mkdir -p site
           cp index.html site/
+          cp -r prova-social site/
 
       - name: Enviar artefato
         uses: actions/upload-pages-artifact@v3

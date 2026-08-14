@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>HFTCripto: Veja o lucro de hoje</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0b;
+    --card:#151317;
+    --border:rgba(255,255,255,.08);
+    --orange-500:#ff7a1a;
+    --orange-600:#ff5100;
+    --orange-glow:rgba(255,106,0,.38);
+    --amber-400:#ffb020;
+    --green-500:#2ecc71;
+    --text-1:#f5f5f6;
+    --text-2:#a6a6ad;
+    --text-3:#6d6d75;
+    --radius-lg:22px;
+    --radius-md:16px;
+    --maxw:460px;
+  }
+  *{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(600px 300px at 50% 0%, rgba(255,90,0,.16), transparent 65%),
+      var(--bg);
+    color:var(--text-1);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:96px;
+  }
+  h1,h2,.display{font-family:'Sora',sans-serif;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 18px;}
+  a{text-decoration:none; color:inherit;}
+
+  /* topbar */
+  .topbar{
+    display:flex; align-items:center; justify-content:center;
+    padding:16px 18px 8px;
+    max-width:var(--maxw); margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:8px; font-family:'Sora',sans-serif; font-weight:700; font-size:15px; letter-spacing:.02em;}
+  .brand-dot{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--orange-500),var(--amber-400)); box-shadow:0 0 10px var(--orange-glow);}
+
+  /* hero */
+  .hero{padding:14px 0 6px; text-align:center;}
+  h1.hero-title{
+    font-size:clamp(19px, 6.4vw, 27px); line-height:1.28; font-weight:800; letter-spacing:-.01em;
+    margin:0 0 12px;
+  }
+  h1.hero-title .accent{
+    background:linear-gradient(135deg,var(--orange-500),var(--amber-400));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero-sub{font-size:14.5px; line-height:1.55; color:var(--text-2); margin:0 auto 26px; max-width:380px;}
+
+  /* VSL */
+  .vsl-shell{
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    border:1px solid rgba(255,150,50,.3);
+    box-shadow:0 18px 40px -18px rgba(255,90,0,.4);
+    margin-bottom:8px;
+    background:#000;
+  }
+
+  /* big question */
+  .big-question{
+    margin:32px 0 28px;
+    text-align:center;
+  }
+  .big-question h2{
+    font-size:clamp(19px, 5.6vw, 24px); line-height:1.35; font-weight:800; margin:0;
+  }
+  .big-question .muted{color:var(--text-3); font-weight:600;}
+  .big-question .highlight{
+    background:linear-gradient(135deg,var(--orange-500),var(--amber-400));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+
+  /* CTA */
+  .cta-btn{
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    width:100%; padding:17px 18px;
+    background:linear-gradient(135deg,var(--orange-500),var(--orange-600));
+    border-radius:999px;
+    color:#fff; font-family:'Sora',sans-serif; font-weight:700; font-size:15.5px;
+    box-shadow:0 14px 30px -10px rgba(255,90,0,.55);
+    border:none; cursor:pointer;
+    animation:cta-pulse 2.6s ease-in-out infinite;
+  }
+  @keyframes cta-pulse{
+    0%,100%{ box-shadow:0 14px 30px -10px rgba(255,90,0,.55); transform:scale(1); }
+    50%{ box-shadow:0 18px 38px -8px rgba(255,90,0,.75); transform:scale(1.015); }
+  }
+  .cta-sub{
+    display:flex; align-items:center; justify-content:center; gap:6px;
+    font-size:11.5px; color:var(--text-3); margin-top:10px;
+  }
+
+  /* footer */
+  footer{padding:36px 0 10px; text-align:center;}
+
+  /* sticky bar */
+  .sticky-bar{
+    position:fixed; left:0; right:0; bottom:0; z-index:50;
+    padding:12px 18px calc(12px + env(safe-area-inset-bottom));
+    background:rgba(10,10,11,.88); backdrop-filter:blur(14px);
+    border-top:1px solid var(--border);
+    transform:translateY(110%); transition:transform .35s cubic-bezier(.4,0,.2,1);
+    max-width:var(--maxw); margin:0 auto; left:50%; transform-origin:center;
+  }
+  .sticky-bar{ left:0; right:0; margin:0 auto; }
+  .sticky-bar.show{transform:translateY(0);}
+  .sticky-bar .cta-btn{padding:13px 18px; font-size:14px; animation:none;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><span class="brand-dot"></span>HFTCripto</div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <h1 class="hero-title">Esse poderia ser o <span class="accent">seu lucro de hoje</span>, mas você não quis dar o próximo passo.</h1>
+    <p class="hero-sub">Veja só o relato de um dos alunos da minha comunidade que está usando todo o potencial do HFTCripto.</p>
+
+    <div class="vsl-shell" id="vslAnchor">
+      <vturb-smartplayer id="vid-6a7e423517d00940689dfa5a" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"><div class="vturb-player-placeholder" style="position: relative; width: 100%; padding: 177.77777777777777% 0 0; z-index: 0; background-color: black;"></div></vturb-smartplayer>
+      <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/6506a979-72cf-4383-b300-5c1e119b939d/players/6a7e423517d00940689dfa5a/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+    </div>
+
+    <div class="big-question">
+      <h2>Você vai <span class="muted">deixar mais uma oportunidade passar</span> na sua frente ou vai <span class="highlight">dar o próximo passo hoje</span>?</h2>
+    </div>
+
+    <a class="cta-btn" href="https://novosricosfx.com/" id="ctaMain">Te vejo hoje à noite</a>
+  </div>
+
+</div>
+
+<div class="sticky-bar" id="stickyBar">
+  <a class="cta-btn" href="https://novosricosfx.com/">Te vejo hoje à noite</a>
+</div>
+
+<script>
+  (function(){
+    var target = document.getElementById('ctaMain');
+    var bar = document.getElementById('stickyBar');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){ bar.classList.remove('show'); }
+          else if(entry.boundingClientRect.top < 0){ bar.classList.add('show'); }
+          else { bar.classList.remove('show'); }
+        });
+      }, { threshold: 0 });
+      io.observe(target);
+    }
+  })();
+</script>
+
+</body>
+</html>
