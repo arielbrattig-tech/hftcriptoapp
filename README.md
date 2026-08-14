@@ -1,4 +1,4 @@
-# HFCripto — página de cupom
+# HFTCripto — página de cupom
 
 Landing page estática (HTML/CSS/JS, sem dependências) empacotada em um container
 nginx pronto para rodar em qualquer nuvem.
