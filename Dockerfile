@@ -17,9 +17,6 @@ COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
 
 COPY index.html /usr/share/nginx/html/index.html
 
-# Segunda pagina, servida em /prova-social/
-COPY prova-social/ /usr/share/nginx/html/prova-social/
-
 EXPOSE 8080
 
 # ENTRYPOINT e CMD são herdados da imagem base (nginx -g "daemon off;").
