@@ -28,6 +28,10 @@ jobs:
 
       - name: Configurar Pages
         uses: actions/configure-pages@v5
+        with:
+          # Ativa o Pages via API caso ainda esteja desligado no repositorio,
+          # dispensando a configuracao manual em Settings.
+          enablement: true
 
       # Publica somente a pagina. Dockerfile, README e configs do nginx nao
       # fazem parte do site.
